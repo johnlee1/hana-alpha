@@ -17,60 +17,22 @@ router.route('/getRandom')
 
     .get(function(req, res) {
 
-        var oneBook = 'John';
-        var oneChapter = 3;
-        var oneVerse = 16;
-        var oneArray = [oneBook, oneChapter, oneVerse];
-
-        var twoBook = 'Jeremiah';
-        var twoChapter = 29;
-        var twoVerse = 11;
-        var twoArray = [twoBook, twoChapter, twoVerse];
-
-        var threeBook = 'Phillippians';
-        var threeChapter = 4;
-        var threeVerse = 13;
-        var threeArray = [threeBook, threeChapter, threeVerse];
-
-        var fourBook = 'Proverbs';
-        var fourChapter = 3;
-        var fourVerse = 5;
-        var fourArray = [fourBook, fourChapter, fourVerse];
-
-        var fiveBook = 'Romans';
-        var fiveChapter = 8;
-        var fiveVerse = 28;
-        var fiveArray = [fiveBook, fiveChapter, fiveVerse];
-
-        var randomArray = [oneArray, twoArray, threeArray, fourArray, fiveArray];
+        var oneVerse = 'For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.';
+        var twoVerse = 'For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.';
+        var threeVerse = 'I can do all things through him who strengthens me.';
+        var fourVerse = 'Trust in the Lord with all your heart,and do not lean on your own understanding.';
+        var fiveVerse = 'And we know that for those who love God all things work together for good, for those who are called according to his purpose.';
+        
+        var randomArray = [oneVerse, twoVerse, threeVerse, fourVerse, fiveVerse];
 
         var randomNumber = Math.floor((Math.random() * 5));
 
-        var book = randomArray[randomNumber][0];
-        var chapter = randomArray[randomNumber][1];
-        var verse = randomArray[randomNumber][2];
+        var randomVerse = randomArray[randomNumber];
 
-        var url = "http://labs.bible.org/api/?passage=" + book + "+" + chapter + ":" + verse + "&formatting=plain";
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() { 
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
-        }
-        xmlHttp.open("GET", url, true); 
-        xmlHttp.send(null);
-
-        function callback(response) {
-            var text = response;
-            text = text.substr(text.indexOf(' ')+1);
-            res.json({
-                success: true,
-                passage: text,
-                book: book,
-                chapter: chapter,
-                verse: verse,
-            })
-        }
-
+        res.json({
+            success: true,
+            verse: randomVerse
+        })
     })
 
 module.exports = router;
