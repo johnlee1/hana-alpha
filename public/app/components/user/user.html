@@ -1,0 +1,50 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+
+            <!-- <img ng-if="userController.imgSrc" src="{{userController.imgSrc}}" style="height:150px;border-radius:50%"> -->
+
+            <h1>{{ userController.displayName }}</h1>
+            <h4>{{ userController.description }}</h4>
+
+            <a href="/settings"><i class="edit link icon iconLink"></i></a>
+
+            <br><br><br>
+
+            <a href="/write" class="createPost">Write a prayer post</a> <br>
+
+            <br><br>
+
+        </div>
+
+        <!-- posts -->
+        <div ng-if="userController.posts.length > 0">
+            <div ng-repeat="post in userController.posts">
+                <h3 class="ui top attached header">
+                    {{post.postTitle}}
+                </h3>
+                <div class="ui attached segment" ng-if="post.postContent.length > 0">
+                    {{post.postContent}}
+                </div>
+                <div class="ui attached segment">
+                    <i>{{post.postSummary}}</i>
+                </div>
+                <br><br><br>
+            </div>
+        </div> 
+
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="one wide column"></div>
+
+    <div class="eight wide column">
+
+    	<br><br><br><br><br>
+
+        <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{mapController.googleMapsUrl}}">
+		  	<ng-map center="41,-87" zoom="3">
+                <div ng-if="mapController.markers.length > 0">
+                    <div ng-repeat="marker in mapController.markers">
+                        <marker position="{{marker.position}}" id="{{marker.id}}" on-click="mapController.showPost($event)"></marker>
+                    </div>
+                </div>
+            </ng-map>
+		</div>
+
+        <br><br>
+
+        <div ng-if="mapController.currentPost">
+            <h3 class="ui top attached header">
+                {{mapController.currentPost.postTitle}}
+            </h3>
+            <div class="ui attached segment" ng-if="mapController.currentPost.postContent">
+                {{mapController.currentPost.postContent}}
+            </div>
+            <div class="ui attached segment">
+                <i>{{mapController.currentPost.postSummary}}</i>
+            </div>
+        </div>
+
+    </div>
+
+</div>

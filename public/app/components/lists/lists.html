@@ -1,0 +1,33 @@
+<div class="ui grid">
+
+  <div class="one wide column"></div>
+
+  <div class="two wide column">
+    <navbar></navbar>
+  </div>
+
+  <div class="one wide column"></div>
+
+  <div class="eight wide column">
+
+    <br><br><br>
+
+    <div class="ui basic center aligned segment">
+      <h1>Lists</h1>
+      <br>
+      <createlist></createlist>
+    </div>
+
+    <div ng-if="listsController.lists > 0">
+        <div class="ui three stackable cards">
+          <div class="ui card" ng-repeat="list in listsController.lists">
+            <div class="content">
+              <a class="header" href="/list/{{list._id}}">{{ list.listName }}</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+</div>

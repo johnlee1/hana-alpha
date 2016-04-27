@@ -1,0 +1,43 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+
+            <div ng-if="writingPageController.errorMessage">
+                {{writingPageController.errorMessage}}
+                <br><br>
+            </div>
+
+            <form class="ui form" ng-submit="writingPageController.submitPost()">
+                <div class="field">
+                    <input type="text" name="postTitle" placeholder="Title" ng-model="writingPageController.postTitle">
+                </div>
+                <div class="field">
+                    <textarea placeholder="Tell the story ..." rows="16" ng-model="writingPageController.postContent"></textarea>
+                </div>
+                <div class="field">
+                    <textarea placeholder="Share how to pray ..." rows="6" ng-model="writingPageController.postSummary"></textarea>
+                </div>
+                <br>
+                <div class="actions">
+                    <button class="small ui ok right floated blue basic button" type="submit">Submit</button>
+                    <button class="small ui cancel right floated black basic button" ng-click="writingPageController.goBack()">Cancel</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

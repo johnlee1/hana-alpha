@@ -1,0 +1,134 @@
+<!-- <img class="bg" src="http://wallpaperhdpics.com/wp-content/uploads/2016/04/Tumblr-Wallpaper-High-Definition-NK1.jpg">  -->
+
+<div class="ui grid initPage1">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div ng-if="loginController.onFirstPage">
+            <button class="mini circular ui grey icon button" ng-click="loginController.firstPage()"></button>
+            <br><br>
+            <button class="mini circular ui icon button" ng-click="loginController.secondPage()"></button>
+            <br><br>
+            <button class="mini circular ui icon button" ng-click="loginController.thirdPage()"></button>
+        </div>
+        <div ng-if="loginController.onSecondPage">
+            <button class="mini circular ui icon button" ng-click="loginController.firstPage()"></button>
+            <br><br>
+            <button class="mini circular ui grey icon button" ng-click="loginController.secondPage()"></button>
+            <br><br>
+            <button class="mini circular ui icon button" ng-click="loginController.thirdPage()"></button>
+        </div>
+        <div ng-if="loginController.onThirdPage">
+            <button class="mini circular ui icon button" ng-click="loginController.firstPage()"></button>
+            <br><br>
+            <button class="mini circular ui icon button" ng-click="loginController.secondPage()"></button>
+            <br><br>
+            <button class="mini circular ui grey icon button" ng-click="loginController.thirdPage()"></button>
+        </div>
+    </div>
+
+    <div class="five wide column">
+        <div ng-if="loginController.bool2" class="fade">
+            <br><br><br><br><br><br><br><br>
+            <div ng-if="loginController.onFirstPage" class="fade">
+                <br><br><br><br>
+                <div class="lower">
+                    <div class="titleInit">The</div>
+                    <div class="titleInit">Prayer</div>
+                    <div class="titleInit">App</div>
+                </div>
+            </div>
+            <div ng-if="loginController.onSecondPage" class="fade">
+                <br><br><br><br><br><br>
+                <div class="lower2">
+                    <div class="secondInit">biblical.</div>
+                    <div class="secondInit">informative.</div>
+                    <div class="secondInit">reflective.</div>
+                </div>
+            </div>
+            <div ng-if="loginController.onThirdPage" class="fade">
+                <br><br><br><br><br><br><br><br><br>
+                <div class="thirdInit">Come on in.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="three wide column"></div>
+
+    <div class="three wide column">
+
+        <br><br><br><br><br><br><br><br><br>
+
+        <div ng-if="loginController.bool" class="fade">
+
+            <div ng-if="loginController.loginPage">
+                <br><br>
+                <div class="ui basic center aligned segment init">
+                    <div ng-if="loginController.unsuccessfulLogin">
+                        {{loginController.unsuccessfulLogin}}<br>
+                        {{loginController.unsuccessfulLogin2}}
+                    </div>
+                </div>
+
+                <div ng-if="!loginController.unsuccessfulLogin">
+                    <br>
+                </div>
+
+                <form class="ui form" ng-submit="loginController.loginUser()">
+                    <div class="field">
+                      <input type="text" name="username" placeholder="Username" ng-model="loginController.loginData.username">
+                    </div>
+                    <div class="field">
+                      <input type="password" name="password" placeholder="Password" ng-model="loginController.loginData.password">
+                    </div>
+                    <div class="ui basic center aligned segment loginBtn">
+                      <button class="small ui button" type="submit">Login</button>
+                    </div>
+                </form>
+
+                <div class="ui basic center aligned segment">
+                    <a href="#" ng-click="loginController.goToRegistration()">Sign Up</a>
+                </div>
+            </div>
+
+            <div ng-if="!loginController.loginPage">
+                <div class="ui basic center aligned segment init">
+                    <div ng-if="loginController.unsuccessfulRegister">
+                        <br><br>
+                        {{loginController.unsuccessfulRegister}}<br>
+                        {{loginController.unsuccessfulRegister2}}
+                    </div>
+                </div>
+
+                <div ng-if="!loginController.unsuccessfulRegister">
+                    <br><br>
+                </div>
+
+                <form class="ui form registrationForm" ng-submit="loginController.registerUser()">
+                    <div class="field">
+                      <input type="text" name="username" placeholder="Username" ng-model="loginController.userData.username">
+                    </div>
+                    <div class="field">
+                      <input type="password" name="password" placeholder="Password" ng-model="loginController.userData.password">
+                    </div>
+                    <div class="field">
+                      <input type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="loginController.userData.confirmPassword">
+                    </div>
+                    <div class="ui basic center aligned segment loginBtn">
+                      <button class="small ui submit button" type="submit">Sign Up</button>
+                      <div class="ui error message"></div>
+                    </div>
+                </form>
+
+                <div class="ui basic center aligned segment">
+                    <a href="#" ng-click="loginController.goToLogin()">Login</a>
+                </div>
+            </div>
+
+        </div>
+
+  </div>
+
+</div>

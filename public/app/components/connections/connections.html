@@ -1,0 +1,51 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+            <h1>Connections</h1>
+
+            <br><br>
+
+            <div ng-if="connectionsController.msg" style="font-size:0.9rem">
+                {{connectionsController.msg}}
+            </div>
+        </div>
+      	
+        <div class="ui two stackable cards" ng-if="connectionsController.connections.length > 1">
+            <div class="ui card" ng-repeat="user in connectionsController.connections" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <!-- <div class="image" ng-if="page.photo">
+                    <img ng-src="{{pagesController.getImgSrc(page._id)}}" style="height:150px">
+                </div> -->
+                <div class="content">
+                    <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+                    <div class="description">{{ user.description }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui one stackable cards" ng-if="connectionsController.connections.length == 1">
+            <div class="ui card" ng-repeat="user in connectionsController.connections" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <!-- <div class="image" ng-if="page.photo">
+                    <img ng-src="{{pagesController.getImgSrc(page._id)}}" style="height:150px">
+                </div> -->
+                <div class="content">
+                    <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+                    <div class="description">{{ user.description }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,82 @@
+<div class="ui grid">
+
+  <div class="one wide column"></div>
+
+  <div class="two wide column">
+    <navbar></navbar>
+  </div>
+
+  <div class="two wide column"></div>
+
+  <div class="six wide column">
+
+    <br><br><br>
+
+    <div class="ui basic center aligned segment">
+
+        <form class="ui action input form" ng-submit="exploreController.query()">
+
+            <div class="field">
+                <input type="text" placeholder=" " ng-model="exploreController.querySearch">
+            </div>
+
+            <div class="field ui action input">
+                <select class="ui compact selection dropdown" ng-model="exploreController.selectedType">
+                    <option selected="" value="users">users</option>
+                    <option value="pages">pages</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <button class="ui basic button" type="submit">Search</button>
+            </div>
+
+        </form>
+
+        <br><br><br>
+
+        <div ng-if="exploreController.message">
+            <h3>{{exploreController.message}}</h3>
+        </div>
+
+    </div>
+
+    <div class="ui two stackable cards" ng-if="exploreController.userResults.length > 1">
+        <div class="ui card" ng-repeat="user in exploreController.userResults">
+          <div class="content">
+            <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+            <div class="description">{{ user.description }}</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="ui one stackable cards" ng-if="exploreController.userResults.length == 1">
+        <div class="ui card" ng-repeat="user in exploreController.userResults">
+          <div class="content">
+            <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+            <div class="description">{{ user.description }}</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="ui two stackable cards" ng-if="exploreController.pageResults.length > 1">
+        <div class="ui card" ng-repeat="page in exploreController.pageResults">
+          <div class="content">
+            <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+            <div class="description">{{ page.pageDescription }}</div>
+          </div>
+        </div>
+    </div>
+
+    <div class="ui one stackable cards" ng-if="exploreController.pageResults.length == 1">
+        <div class="ui card" ng-repeat="page in exploreController.pageResults">
+          <div class="content">
+            <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+            <div class="description">{{ page.pageDescription }}</div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+</div>

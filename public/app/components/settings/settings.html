@@ -1,0 +1,101 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+
+            <img ng-if="settingsController.imgSrc" src="{{settingsController.imgSrc}}" style="height:150px;border-radius:50%">
+            <h1>{{ settingsController.displayName }}</h1>
+            <h4>{{ settingsController.description }}</h4>
+
+        </div>
+
+        <br>
+
+        <div class="ui top attached tabular menu">
+            <a class="item active" data-tab="first">Profile</a>
+            <a class="item" data-tab="second">Photo</a>
+            <!-- <a class="item" data-tab="third">Account</a> -->
+        </div>
+
+        <div class="ui bottom attached tab segment active" data-tab="first">
+            <br>
+            <form class="ui form" ng-submit="settingsController.submitUserEdit()">
+                <div class="inline fields">
+                    <div class="two wide field">
+                        <label>Name</label>
+                    </div>
+                    <div class="fourteen wide field">
+                        <input type="text" placeholder="Name" ng-model="settingsController.displayName">
+                    </div>
+                </div>
+                <div class="inline fields">
+                    <div class="two wide field">
+                        <label>Bio</label>
+                    </div>
+                    <div class="fourteen wide field">
+                        <input type="text" placeholder="Bio" ng-model="settingsController.description">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="small ui ok right floated blue basic button" type="submit">Submit</button>
+                    <button class="small ui cancel right floated black basic button" ng-click="settingsController.goBack()">Cancel</button>
+                </div>
+                <br>
+            </form>
+            <br>
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second">
+            <br>
+            <form class="ui form" ng-submit="settingsController.upload(croppedDataUrl, picFile, picFile.name)">
+
+                <div>Set Profile Picture:</div> <br>
+                <button ngf-select ng-model="picFile" accept="image/*">Select Picture</button><br><br>
+                <div ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+                    <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+                    </img-crop>
+                </div>
+                <br>
+                <div>
+                    <img class="croppedImagePreview" ng-src="{{croppedDataUrl}}" style="border-radius:50%"/>
+                </div>
+
+                <div class="actions">
+                    <button class="small ui ok right floated blue basic button" type="submit">Submit</button>
+                    <button class="small ui cancel right floated black basic button" ng-click="settingsController.goBack()">Cancel</button>
+                </div>
+                <br>
+            </form>
+            <br>
+        </div>
+        <!-- <div class="ui bottom attached tab segment" data-tab="third">
+            <form class="ui form" ng-submit="settingsController.submitUserEdit()">
+                <div class="field">
+                    <input type="text" placeholder="Old Password" ng-model="settingsController.postData.displayName">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="New Password" ng-model="settingsController.postData.bio">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="Confirm New Password" ng-model="settingsController.postData.bio">
+                </div>
+                <div class="actions">
+                    <button class="small ui ok right floated blue basic button" type="submit">Submit</button>
+                </div>
+                <br>
+            </form>
+            <br>
+        </div> -->
+    </div>
+
+</div>

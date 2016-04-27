@@ -1,0 +1,33 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="one wide column"></div>
+
+    <div class="eight wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+            <h1>Groups</h1>
+            <br>
+            <creategroup></creategroup>
+        </div>
+
+        <div class="ui three stackable cards">
+            <div class="ui card" ng-repeat="group in groupsController.groups">
+                <div class="content">
+                    <a class="header" href="/group/{{group._id}}">{{ group.groupName }}</a>
+                    <div class="meta">Admin</div>
+                    <div class="description">{{ group.groupDescription }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

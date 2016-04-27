@@ -1,0 +1,50 @@
+<img class="bg" src="http://image.desiringgod.org/do-we-participate-in-our-own-salvation-hdepubkh-en/landscape/large_do-we-participate-in-our-own-salvation-hdepubkh.jpg?1460660067"> 
+
+<div class="ui grid">
+
+    <div class="six wide column"></div>
+
+    <div class="four wide column">
+
+        <br><br><br><br><br><br><br><br><br>
+
+        <div ng-if="registerController.bool" class="fade">
+
+            <div class="ui basic center aligned segment init">
+                <div class="titleInit">PRAYER</div> 
+                <div class="catch">ask. seek. knock.</div>
+                <div ng-if="registerController.unsuccessfulRegister">
+                    <br><br>
+                    {{registerController.unsuccessfulRegister}}
+                </div>
+            </div>
+
+            <div ng-if="!registerController.unsuccessfulRegister">
+                <br>
+            </div>
+
+            <form class="ui form registrationForm" ng-submit="registerController.registerUser()">
+                <div class="field">
+                  <input type="text" name="username" placeholder="Username" ng-model="registerController.userData.username">
+                </div>
+                <div class="field">
+                  <input type="password" name="password" placeholder="Password" ng-model="registerController.userData.password">
+                </div>
+                <div class="field">
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                </div>
+                <div class="ui basic center aligned segment loginBtn">
+                  <button class="small ui submit button" type="submit">Sign Up</button>
+                  <div class="ui error message"></div>
+                </div>
+            </form>
+
+            <div class="ui basic center aligned segment">
+                <a href="/login">Login</a>
+            </div>
+
+        </div>
+
+  </div>
+
+</div>

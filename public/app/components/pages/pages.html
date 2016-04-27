@@ -1,0 +1,78 @@
+<div class="ui grid">
+
+    <div class="four wide column">  
+        <navbar></navbar>
+    </div>
+
+  <div class="eight wide column">
+
+    <br><br><br>
+
+    <div class="ui basic center aligned segment">
+        <h1>Pages</h1>
+        <br>
+        <!-- <pages></pages> -->
+        <a href="/createPage"><i class="add link circle icon iconLink"></i></a>
+    </div>
+
+    <br>
+
+    <div ng-if="pagesController.bool" class="fadeIn">
+        <div class="ui two stackable cards" ng-if="pagesController.moreThanOnePage">
+            <div class="ui card" ng-repeat="page in pagesController.adminPages" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <!-- <div class="image" ng-if="page.photo">
+                    <img ng-src="{{pagesController.getImgSrc(page._id)}}" style="height:150px">
+                </div> -->
+                <div class="content">
+                    <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+                    <div class="meta">Admin</div>
+                    <div class="description">{{ page.pageDescription }}</div>
+                </div>
+            </div>
+            <div class="ui card" ng-repeat="page in pagesController.memberPages" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <div class="content">
+                    <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+                    <div class="meta">Member</div>
+                    <div class="description">{{ page.pageDescription }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="ui one stackable cards" ng-if="!pagesController.moreThanOnePage">
+            <div class="ui card" ng-repeat="page in pagesController.adminPages" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <!-- <div class="image" ng-if="page.photo">
+                    <img ng-src="{{pagesController.getImgSrc(page._id)}}" style="height:150px">
+                </div> -->
+                <div class="content">
+                    <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+                    <div class="meta">Admin</div>
+                    <div class="description">{{ page.pageDescription }}</div>
+                </div>
+            </div>
+            <div class="ui card" ng-repeat="page in pagesController.memberPages" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                <div class="content">
+                    <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+                    <div class="meta">Member</div>
+                    <div class="description">{{ page.pageDescription }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     <div class="fadeInCards">
+        <div class="ui two stackable cards">
+          <div class="ui card" ng-repeat="page in pagesController.memberPages" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+            <div class="content">
+              <a class="header" href="/page/{{page._id}}">{{ page.pageName }}</a>
+              <div class="meta">Member</div>
+              <div class="description">{{ page.pageDescription }}</div>
+            </div>
+          </div>
+        </div>
+    </div> -->
+
+    <br><br>
+
+  </div>
+
+</div>
+

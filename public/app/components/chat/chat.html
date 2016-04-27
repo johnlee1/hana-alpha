@@ -1,0 +1,48 @@
+<div class="ui grid">
+
+    <div class="six wide column">  <navbar></navbar> </div>
+
+    <div class="four wide column">
+
+        <br><br><br>
+
+        <div class="FixedHeightContainer">
+            <div class="ui basic center aligned segment">
+                <h2>{{chatController.onlineUser}}</h2>
+                <div ng-if="chatController.onlineUser"><hr></div>
+            </div>
+            <br>
+            <div class="Content">
+                    <div class="chats" ng-repeat="message in chatController.messages">
+                        <div ng-if="message.self == true" class="selfMsgSpace">
+                            <span class="selfMsg">&nbsp;&nbsp;&nbsp;{{message.message}}&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                        <div ng-if="message.self != true">
+                            <span class="otherMsg">&nbsp;&nbsp;&nbsp;{{message.message}}&nbsp;&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <form ng-submit="chatController.sendMessage(chatController.msg)" ng-controller="chatController">
+            <div class="ui fluid icon input" id="msgBar">
+                <input type="text" placeholder="Type a message..." ng-model="chatController.msg">
+            </div>
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+        </form>
+
+    </div>
+
+    <div class="three wide column"></div>
+
+    <div class="three wide column">
+        <br><br><br><br><br>
+        <div ng-repeat="onlineUser in chatController.onlineUsers">
+            <a href="#" ng-click="chatController.setCurrent(onlineUser)" id='{{onlineUser.socketId}}'>{{onlineUser.user.displayName}}</a>
+        </div>
+        <div ng-if="chatController.onlineUsers.length == 0">
+            <h4>No users currently online</h4>
+        </div>
+    </div>
+
+</div>

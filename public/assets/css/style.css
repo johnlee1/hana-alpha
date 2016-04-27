@@ -1,0 +1,201 @@
+.navLink { color: inherit; } 
+
+.notTitle {
+    padding: .5em 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 1em;
+}
+
+.animate-enter {
+	-webkit-transition: 2s linear all; 
+	transition: 2s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
+.initPage1 {
+    /*background-color: #778899;*/
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    /*z-index:-1;*/ /* Remove this line if it's not going to be a background! */
+}
+
+.switch {
+    /*color: blue;*/
+}
+
+.lower {
+    margin: 1rem;
+}
+
+.lower2 {
+    margin: 0.4rem;
+}
+
+.titleInit {
+	font-size: 6rem;
+	margin: 0 0 5rem;
+	letter-spacing: 1rem;
+	font-family: 'Lato', sans-serif;	
+    font-weight: 100;
+	color: black;
+}
+
+.secondInit {
+    font-size: 3rem;
+    margin: 0 0 3rem;
+    letter-spacing: 0.5rem;
+    margin-right:-1rem;
+    font-family: 'Lato', sans-serif;    
+    font-weight: 100;
+    color: black;
+}
+
+.thirdInit {
+    font-size: 3rem;
+    margin: 0.8rem 0 3rem;
+    letter-spacing: 0.5rem;
+    margin-right:-1rem;
+    font-family: 'Lato', sans-serif;    
+    font-weight: 100;
+    color: black;
+}
+
+
+.catch {
+	margin: 0 0 0rem;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+.ui.segment.loginBtn {
+	margin: 0rem 0;
+}
+
+.cropArea {
+	/*margin: auto;*/
+  width: 100%;
+}
+
+.croppedImagePreview {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.postTitle {
+	margin-bottom: 0.5rem;
+}
+
+.postAuthor {
+	font-size: 0.8rem;
+	font-weight: 400;
+	color: gray;
+}
+
+#msgBar {
+    position: fixed;
+    z-index: 100; 
+    bottom: 10%; 
+    left: 35%;
+    width: 30%;
+}
+
+.FixedHeightContainer {
+	position: fixed;
+    z-index: 100; 
+    top: 8%; 
+    left: 35%;
+    width: 30%;
+	height: 60%;
+	/*padding:3px;*/ 
+    /*background:#f00;*/
+}
+
+.Content {
+  	height: 90%;
+   	overflow:auto;
+    /*background:#fff;*/
+}
+
+.createPost {
+    font-size: 1.1rem;
+    color:#00aabb;
+}
+
+.bible {
+    font-size: 1.1rem;
+    color:#00aabb;
+}
+
+.bibleReference {
+    font-size: 1.1rem;
+    color: #00aabb;
+    float: right;
+}
+
+.iconLink {
+    color: black;
+}
+
+/* The starting CSS styles for the enter animation */
+.fade.ng-enter {
+    animation: fadeInUp 2s;
+}
+
+.fade.ng-leave {
+    animation: fadeOutDown 1s;
+}
+
+.fadeIn.ng-enter {
+    animation: fadeInUp 1s;
+}
+
+.selfMsgSpace {
+    text-align: right;
+}
+
+.selfMsg {
+    color: white;
+    background-color: #B0C4DE;
+    border-radius:20px 5px 20px 20px;
+}
+
+.otherMsg {
+    background-color: #D3D3D3; 
+    border-radius:5px 20px 20px 20px;
+}
+
+.pageDescription {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}

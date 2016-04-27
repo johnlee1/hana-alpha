@@ -1,0 +1,28 @@
+<i class="add link circle icon" ng-click="groupsController.showModal()"></i>
+
+<div class="ui modal group">
+    <div class="header">
+        Create a Group
+    </div>
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="twelve wide column">
+          <br><br>
+          <form class="ui form" ng-submit="groupsController.createGroup()">
+            <div class="field">
+              <input type="text" name="groupName" placeholder="Name" ng-model="groupsController.groupData.groupName">
+            </div>
+            <div class="field">
+              <input type="text" name="groupDescription" placeholder="Description" ng-model="groupsController.groupData.groupDescription">
+            </div>
+            <div class="actions">
+                <div class="actions">
+                    <button class="ui ok right floated blue basic button" type="submit">Create</button>
+                    <button class="ui cancel right floated black basic button">Cancel</button>
+                </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    <br><br>
+</div>

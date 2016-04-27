@@ -1,0 +1,52 @@
+<div class="ui grid">
+
+  <div class="one wide column"></div>
+
+  <div class="two wide column">
+    <navbar></navbar>
+  </div>
+
+  <div class="two wide column"></div>
+
+  <div class="six wide column">
+
+    <br><br><br>
+
+        <div class="ui basic center aligned segment">
+            <h1>Welcome {{homeController.displayName}} </h1>
+        </div>
+
+        <div ng-if="homeController.bool" class="fadeIn">
+            <i class="bible">{{homeController.bible}}</i> <br>
+            <i class="bibleReference">{{homeController.passage}}</i>
+        </div>
+
+        <br><br><br>
+
+        <!-- urgent posts -->
+        <div ng-if="homeController.urgentRequests.length > 0">
+
+            <div class="ui basic center aligned segment">
+                <h3>Urgent Prayer Requests</h3>
+            </div>
+
+            <br>
+
+            <div ng-repeat="post in homeController.urgentRequests">
+                <div class="ui top attached header">
+                    <h3 class="postTitle">{{post.post.postTitle}}</h3>
+                    <div class="postAuthor">{{post.displayName}}</div>
+                </div>
+                <div class="ui attached segment" ng-if="post.post.postContent.length > 0">
+                    {{post.post.postContent}}
+                </div>
+                <div class="ui attached segment">
+                    <i>{{post.post.postSummary}}</i>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+
+  </div>
+
+</div>

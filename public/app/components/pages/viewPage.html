@@ -1,0 +1,84 @@
+<div class="ui grid">
+
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
+    </div>
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+    <br><br><br>
+
+
+        <div class="ui grid">
+
+            <div class="eight wide column">
+                <img ng-if="pageController.imgSrc" src="{{pageController.imgSrc}}" style="width:100%">
+            </div>
+
+            <div class="eight wide column">
+
+                <div ng-if="pageController.isAdmin">
+                    <h1>{{ pageController.page.pageName }}</h1>
+                    <div class="pageDescription">{{ pageController.page.pageDescription }}</div>
+                    <br>
+                    <a ng-href="/pageSettings/{{pageController.pageId}}"><i class="edit link icon iconLink"></i></a>
+                </div>
+
+                <div ng-if="!pageController.isAdmin">
+                    <h1>{{ pageController.page.pageName }}</h1>
+                    <h4>{{ pageController.page.pageDescription }}</h4><br>
+                    <button class="ui mini grey basic button" ng-click="pageController.followPage()" ng-if="!pageController.isFollowing">Follow</button>
+                    <button class="ui mini grey basic button" ng-click="pageController.unfollowPage()" ng-if="pageController.isFollowing">Following</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div ng-if="pageController.isAdmin" class="ui basic center aligned segment">
+            <a ng-href="/writePagePost/{{pageController.pageId}}" class="createPost">Write a prayer post</a> <br>
+        </div>
+
+        <br><br><br>
+
+        <!-- posts -->
+        <div ng-if="pageController.posts.length > 0">
+            <div ng-repeat="post in pageController.posts">
+                <div class="ui top attached header">
+                    <h3 class="postTitle">{{post.post.postTitle}}</h3>
+                    <div class="postAuthor">{{post.displayName}}</div>
+                </div>
+                <div class="ui attached segment" ng-if="post.post.postContent.length > 0">
+                    {{post.post.postContent}}
+                </div>
+                <div class="ui attached segment">
+                    <i>{{post.post.postSummary}}</i>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+
+        <br>
+
+  </div>
+
+</div>
+
+
+                <!-- <h1 ng-hide="pageController.editing" ng-click="pageController.editing=true;">{{ pageController.page.pageName }}</h1>
+                <h4 ng-hide="pageController.editing" ng-click="pageController.editing=true;">{{ pageController.page.pageDescription }}</h4>
+
+                <div class="ui fluid input" ng-show="pageController.editing" ng-blur="pageController.editing=false; pageController.pageUpdate()">
+                    <input class="pageNameInput" ng-show="pageController.editing" show-focus="pageController.editing" type="text" ng-model="pageController.page.pageName"/> 
+                </div>
+                <div class="ui fluid input" ng-show="pageController.editing" ng-blur="pageController.editing=false; pageController.pageUpdate()">
+                    <textarea class="pageNameInput ui fluid input" ng-show="pageController.editing" type="text" rows="3" style="width:100%" ng-model="pageController.page.pageDescription"></textarea>
+                </div>
+
+                <br> -->
