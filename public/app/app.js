@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('prayerApp', ['routerRoutes', 'ngFileUpload', 'ngImgCrop', 'ngAnimate','btford.socket-io','ngMap'])
+angular.module('prayerApp', ['routerRoutes', 'ngFileUpload', 'ngImgCrop', 'ngAnimate'])
 
 .controller('mainController', function() {
 
@@ -18,9 +18,9 @@ angular.module('prayerApp', ['routerRoutes', 'ngFileUpload', 'ngImgCrop', 'ngAni
 })
 
 
-.factory('mySocket', function(socketFactory) {
-  	return socketFactory();
-})
+// .factory('mySocket', function(socketFactory) {
+//   	return socketFactory();
+// })
 
 
 .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {

@@ -29,6 +29,34 @@
 
         </div>
 
+        <div class="ui accordion">
+            <div class="title">
+                test
+            </div>
+            <div class="content">
+                <p class="transition hidden">test</p>
+            </div>
+        </div>
+
+
+
+
+                <!-- posts -->
+        <div ng-if="userController.posts.length > 0">
+            <div ng-repeat="post in userController.posts">
+                <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  {{post.postTitle}}
+                </a>
+                <div class="collapse" id="collapseExample">
+                  <div class="well">
+                    {{post.postContent}}
+                  </div>
+                </div>
+            </div>
+        </div> 
+
+
+
         <!-- posts -->
         <div ng-if="userController.posts.length > 0">
             <div ng-repeat="post in userController.posts">

@@ -5,9 +5,8 @@
 	var vm = this;
 	//vm.editing = false;
 
-	$('.menu .item')
-  		.tab()
-	;
+	$('.menu .item').tab();
+	// $('.ui.accordion').accordion();
 
 
 	Auth.getUser().then(function(user){ 

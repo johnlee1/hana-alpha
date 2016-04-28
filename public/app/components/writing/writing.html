@@ -10,7 +10,7 @@
 
     <div class="six wide column">
 
-        <br><br><br>
+        <br><br>
 
         <div class="ui basic center aligned segment">
 
@@ -23,14 +23,14 @@
                 <div class="field">
                     <input type="text" name="postTitle" placeholder="Title" ng-model="writingController.postData.postTitle">
                 </div>
-                <div class="field">
+                <!-- <div class="field">
                     <input type="text" name="postLocation" placeholder="Location" ng-model="writingController.postData.postLocation">
+                </div> -->
+                <div class="field">
+                    <textarea placeholder="Tell the story ..." rows="16" ng-model="writingController.postData.postContent"></textarea>
                 </div>
                 <div class="field">
-                    <textarea placeholder="Tell the story ..." rows="15" ng-model="writingController.postData.postContent"></textarea>
-                </div>
-                <div class="field">
-                    <textarea placeholder="Share how to pray ..." rows="4" ng-model="writingController.postData.postSummary"></textarea>
+                    <textarea placeholder="Share how to pray ..." rows="5" ng-model="writingController.postData.postSummary"></textarea>
                 </div>
                 <div class="inline fields">
                     <div class="field">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="actions">
                     <button class="small ui ok right floated blue basic button" type="submit">Submit</button>
-                    <button class="small ui cancel right floated black basic button" ng-click="writingController.goBack()">Cancel</button>
+                    <button class="small ui cancel right floated grey basic button" ng-click="writingController.goBack()">Cancel</button>
                 </div>
             </form>
 

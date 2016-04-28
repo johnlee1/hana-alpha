@@ -1,8 +1,6 @@
 angular.module('prayerApp')
 
-.controller('loginController', function(userFactory, Auth, AuthToken, $timeout, $location, mySocket) {
-
-	mySocket.disconnect();
+.controller('loginController', function(userFactory, Auth, AuthToken, $timeout, $location) {
 
 	Auth.logout();
 
