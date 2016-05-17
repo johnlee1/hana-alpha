@@ -30,7 +30,7 @@ var userRouter = require('./app/routes/user');
 app.use('/user', userRouter);
 var pagesRouter = require('./app/routes/page');
 app.use('/page', pagesRouter);
-var groupRouter = require('./app/routes/group');
+var groupRouter = require('./app/routes/groups');
 app.use('/group', groupRouter);
 var listRouter = require('./app/routes/list');
 app.use('/list', listRouter);

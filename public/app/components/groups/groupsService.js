@@ -7,7 +7,7 @@ angular.module('prayerApp')
 
 	// create a group
 	group.createGroup = function(groupData) {
-		return $http.post('/group/write', groupData);
+		return $http.post('/group/group', groupData);
 	};
 
 	// get groups to display
@@ -17,8 +17,7 @@ angular.module('prayerApp')
 
 	// get the info of a page
 	group.getInfo = function(groupId) {
-		console.log('getting group info in service');
-		return $http.get('/group/read/' + groupId);
+		return $http.get('/group/group/' + groupId);
 	};
 
 	return group;

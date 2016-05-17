@@ -51,6 +51,12 @@
 			controllerAs : 'groupsController'
 		})
 
+		.when ('/createGroup', {
+			templateUrl : 'app/components/groups/createGroup.html',
+			controller : 'groupsController',
+			controllerAs : 'groupsController'
+		})
+
 		.when ('/group/:groupId', {
 			templateUrl : 'app/components/groups/viewGroup.html',
 			controller : 'groupController',

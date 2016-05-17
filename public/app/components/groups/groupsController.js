@@ -22,14 +22,19 @@ angular.module('prayerApp')
 	// create a page 
 	vm.createGroup = function() {
 
-		vm.groupData.userId = vm.userId;
+		var data = {groupName: vm.groupName, groupDescription: vm.groupDescription, userId: vm.userId};
 
-		groupsFactory.createGroup(vm.groupData)
+		groupsFactory.createGroup(data)
 			.success(function(data) {
 
 				// if a user successfully logs in, redirect to user page
 				$location.path('/groups');
 			});
+	};
+
+	// go to groups page
+	vm.goBack = function() {
+		$location.path('/groups/');
 	};
 
 });

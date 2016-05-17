@@ -1,28 +1,43 @@
-<i class="add link circle icon" ng-click="groupsController.showModal()"></i>
+<div class="ui grid">
 
-<div class="ui modal group">
-    <div class="header">
-        Create a Group
+    <div class="one wide column"></div>
+
+    <div class="two wide column">
+        <navbar></navbar>
     </div>
-    <div class="ui grid">
-        <div class="two wide column"></div>
-        <div class="twelve wide column">
-          <br><br>
-          <form class="ui form" ng-submit="groupsController.createGroup()">
-            <div class="field">
-              <input type="text" name="groupName" placeholder="Name" ng-model="groupsController.groupData.groupName">
+
+    <div class="two wide column"></div>
+
+    <div class="six wide column">
+
+        <br><br><br>
+
+        <div class="ui basic center aligned segment">
+
+            <h1>Create a Group</h1>
+
+            <br>
+
+            <div ng-if="groupsController.errorMessage">
+                {{groupsController.errorMessage}}
+                <br><br>
             </div>
-            <div class="field">
-              <input type="text" name="groupDescription" placeholder="Description" ng-model="groupsController.groupData.groupDescription">
-            </div>
-            <div class="actions">
+
+            <form class="ui form" ng-submit="groupsController.createGroup()">
+                <div class="field">
+                  <input type="text" name="groupName" placeholder="Group Name" ng-model="groupsController.groupName">
+                </div>
+                <div class="field">
+                  <textarea rows="5" type="text" name="pageDescription" placeholder="What is this group about?" ng-model="groupsController.groupDescription"></textarea>
+                </div>
                 <div class="actions">
                     <button class="ui ok right floated blue basic button" type="submit">Create</button>
-                    <button class="ui cancel right floated black basic button">Cancel</button>
+                    <button class="ui deny right floated grey basic button" ng-click="groupsController.goBack()">Cancel</button>
                 </div>
-            </div>
-          </form>
+            </form>
+
         </div>
+
     </div>
-    <br><br>
+
 </div>
