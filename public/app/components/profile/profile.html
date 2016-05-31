@@ -26,7 +26,7 @@
         <!-- posts -->
         <div ng-if="profileController.posts.length > 0">
             <div ng-repeat="post in profileController.posts">
-                {{post.postCreateTime.substring(0,10)}} <br>
+                <div style="position:relative;float:right;">{{post.postCreateTime.substring(0,10)}}</div>
                 <h3 class="ui top attached header">
                     {{post.postTitle}} 
                 </h3>
