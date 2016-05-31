@@ -32,6 +32,7 @@
         <!-- posts -->
         <div ng-if="userController.posts.length > 0">
             <div ng-repeat="post in userController.posts">
+                {{post.postCreateTime.substring(0,10)}} <br>
                 <h3 class="ui top attached header">
                     {{post.postTitle}}
                 </h3>
