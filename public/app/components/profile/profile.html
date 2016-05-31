@@ -26,11 +26,13 @@
         <!-- posts -->
         <div ng-if="profileController.posts.length > 0">
             <div ng-repeat="post in profileController.posts">
+                {{post.postCreateTime.substring(0,10)}} <br>
                 <h3 class="ui top attached header">
-                    {{post.postTitle}}
+                    {{post.postTitle}} 
                 </h3>
                 <div class="ui attached segment" ng-if="post.postContent.length > 0">
                     {{post.postContent}}
+                    
                 </div>
                 <div class="ui attached segment">
                     <i>{{post.postSummary}}</i>
