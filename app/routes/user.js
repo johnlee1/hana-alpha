@@ -119,7 +119,7 @@ router.route('/search/:query/:userId')
 			})
 		}
 		else {
-			User.find({$and: [{_id: {$ne: req.params.userId}}, {displayName: new RegExp(req.params.query,'i')}]}, function(err, users) {
+			User.find({$and: [{_id: {$ne: req.params.userId}}, {username: new RegExp(req.params.query,'i')}]}, function(err, users) {
 		 		if(err) {
 		 			res.send(err);
 		 		}

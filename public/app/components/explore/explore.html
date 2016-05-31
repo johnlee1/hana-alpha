@@ -44,7 +44,7 @@
     <div class="ui two stackable cards" ng-if="exploreController.userResults.length > 1">
         <div class="ui card" ng-repeat="user in exploreController.userResults">
           <div class="content">
-            <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+            <a class="header" href="/user/{{user._id}}">{{ user.username }}</a>
             <div class="description">{{ user.description }}</div>
           </div>
         </div>
@@ -53,7 +53,7 @@
     <div class="ui one stackable cards" ng-if="exploreController.userResults.length == 1">
         <div class="ui card" ng-repeat="user in exploreController.userResults">
           <div class="content">
-            <a class="header" href="/user/{{user._id}}">{{ user.displayName }}</a>
+            <a class="header" href="/user/{{user._id}}">{{ user.username }}</a>
             <div class="description">{{ user.description }}</div>
           </div>
         </div>
