@@ -11,7 +11,7 @@ var busboyBodyParser = require('busboy-body-parser');
 
 require('./app/database')
 
-app.use('/', express.static('public'));
+app.use('/', express.static(__dirname + '/public'));
 
 
 // maybe delete this later
@@ -105,7 +105,7 @@ var userIds = [];
 app.use(busboyBodyParser());
 
 
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname + '/public/app/index.html'));
 });
 
