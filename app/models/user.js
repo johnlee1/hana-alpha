@@ -43,6 +43,22 @@ userSchema.methods.comparePassword = function(password) {
 	return bcrypt.compareSync(password, user.password);
 };
 
+userSchema.static('findByUsername', function(username, callback) {
+  var wrapper = function(err, user) {
+    if (user) {
+      if (!Array.isArray(user)) {
+        user = undefined;
+      } else if (user.length == 0) {
+        user = undefined;
+      } else {
+        user = user[0];
+      }
+      callback(err, user);
+    }
+  }
+  return this.find({ username: username }, wrapper).limit(1);
+});
+
 var model = mongoose.model('User', userSchema);
 
 module.exports = model;

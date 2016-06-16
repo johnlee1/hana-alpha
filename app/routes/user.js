@@ -33,14 +33,21 @@ router.route('/user/:userId')
 		}
 		else {
 			User.findById(req.params.userId, function(err, user) {
-				if(err) {
-					res.send(err);
-				}
-				else if(!user) {
-					res.json({
-						success: false,
-						message: 'User not found'
-					})
+				if(err || !user) {
+          User.findByUsername(req.params.userId, function(err, user) {
+            if(err) {
+              res.send(err);
+            }
+            else if(!user) {
+              res.json({
+                success: false,
+                message: 'User not found'
+              })
+            }
+            else {
+              res.json(user);
+            }
+          })
 				}
 				else {
 					res.json(user);
