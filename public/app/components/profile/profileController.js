@@ -1,6 +1,6 @@
  angular.module('prayerApp')
 
-.controller('profileController', function(userFactory, postFactory, Auth, $location, $routeParams) {
+.controller('profileController', function($window, userFactory, postFactory, Auth, $location, $routeParams) {
 
 
 	var vm = this;
@@ -11,6 +11,9 @@
 
   userFactory.userInfo($routeParams.userId).then(function(user){ // Ray's hack
     vm.profileId = user.data._id; // Ray's hack
+    if (user.data.username != $routeParams.userId) { // Ray's hack to redirect to /user/:username
+      $window.location.href = '/user/' + user.data.username
+    }
     vm.user = user.data;
 
     callback();
